@@ -3,7 +3,7 @@ LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
       Description="Lightweight container with Nginx 1.16 & PHP-FPM 7.3 based on Alpine Linux."
 
 # Install packages
-RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-mysql php7-pgsql php7-redis php7-sqlite3 php7-bcmath php-imagick php7-imap php-mongodb php7-soap php7-xmlrpc php-yaml php7-json php7-openssl php7-mcrypt php7-curl \
+RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-mysql php7-pgsql php7-redis php7-sqlite3 php7-bcmath php7-imagick php7-imap php7-mongodb php7-soap php7-xmlrpc php7-yaml php7-json php7-openssl php7-mcrypt php7-curl \
     php7-zlib php7-xml php7-phar php7-zip php7-intl php7-dom php7-xmlreader php7-ctype php7-session \
     php7-mbstring php7-gd nginx supervisor curl
 
