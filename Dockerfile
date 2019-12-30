@@ -1,7 +1,9 @@
+FROM composer:latest AS composer
 FROM alpine:latest
-LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
+LABEL Maintainer="Luiz Jr <lj@luizjr.dev>" \
       Description="Lightweight container with Nginx 1.16 & PHP-FPM 7.3 based on Alpine Linux."
 
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 # Install packages
 RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-pgsql php7-redis php7-sqlite3 php7-bcmath php7-imagick php7-imap php7-soap php7-xmlrpc php7-yaml php7-json php7-openssl php7-mcrypt php7-curl \
     php7-zlib php7-xml php7-phar php7-zip php7-intl php7-dom php7-xmlreader php7-ctype php7-session \
@@ -22,6 +24,7 @@ COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
 RUN chown -R nobody.nobody /run && \
   chown -R nobody.nobody /var/lib/nginx && \
+  mkdir /var/tmp/nginx && \
   chown -R nobody.nobody /var/tmp/nginx && \
   chown -R nobody.nobody /var/log/nginx
 
