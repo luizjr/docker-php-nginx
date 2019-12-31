@@ -6,8 +6,8 @@ LABEL Maintainer="Luiz Jr <lj@luizjr.dev>" \
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 # Install packages
 RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-pgsql php7-redis php7-sqlite3 php7-bcmath php7-imagick php7-imap php7-soap php7-xmlrpc php7-yaml php7-json php7-openssl php7-mcrypt php7-curl \
-    php7-zlib php7-xml php7-phar php7-zip php7-intl php7-dom php7-xmlreader php7-ctype php7-session php7-tokenizer php7-fileinfo \
-    php7-mbstring php7-gd nginx supervisor curl
+    php7-zlib php7-xml php7-phar php7-zip php7-intl php7-dom php7-xmlreader php7-xmlwriter php7-ctype php7-session php7-tokenizer php7-fileinfo \
+    php7-mbstring php7-gd php7-pdo nginx supervisor curl
 
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
